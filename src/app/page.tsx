@@ -1,4 +1,3 @@
-// src/app/page.tsx
 "use client";
 import { useState } from 'react';
 import Head from 'next/head';  // 引入 Head 组件
@@ -10,7 +9,6 @@ import confetti from 'canvas-confetti';
 export default function Home() {
   const [snippetOutput, setSnippetOutput] = useState('生成的代码片段将显示在这里...');
   const [isModalVisible, setIsModalVisible] = useState(false);
-  const [isHelpVisible, setIsHelpVisible] = useState(false);
 
   const generateSnippet = (snippetName: string, prefix: string, body: string, description: string) => {
     const bodyLines = body.split('\n');
@@ -48,20 +46,6 @@ export default function Home() {
     });
   };
 
-  // 打字机效果
-  // 打字机效果
-  const typewriterEffect = (text: string, setText: React.Dispatch<React.SetStateAction<string>>) => {
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < text.length) {
-        setText((prev) => prev + text.charAt(index)); // 传递一个函数给 setText
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 2000 / text.length); // 两秒内完成打字效果
-  };
-
   return (
     <>
       {/* 添加网站的元数据 */}
@@ -74,7 +58,6 @@ export default function Home() {
       </Head>
 
       <main className="flex flex-col items-center justify-center min-h-screen p-6 bg-gray-100 pt-24">
-
         {/* 顶部导航栏 */}
         <nav className="w-full p-2 bg-white shadow-md fixed top-0 left-0 z-50">
           <div className="container mx-auto flex justify-between items-center">
@@ -89,7 +72,7 @@ export default function Home() {
         {/* 引导内容 */}
         <section className="text-center my-12 px-4">
           <h2 className="text-3xl font-bold mb-4">欢迎使用代码片段生成器</h2>
-          <p className="text-gray-600 typewriter">快速生成您需要的代码片段，方便复制和使用。只针对Markdown,因为我要用这个写博客。🎉</p>
+          <p className="text-gray-600">快速生成您需要的代码片段，方便复制和使用。只针对Markdown,因为我要用这个写博客。🎉</p>
         </section>
 
         {/* 表单和输出区域 */}
