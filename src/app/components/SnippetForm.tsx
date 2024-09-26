@@ -1,4 +1,3 @@
-// src/app/components/SnippetForm.tsx
 import { useState } from 'react';
 
 interface SnippetFormProps {
@@ -10,12 +9,17 @@ export default function SnippetForm({ onGenerate }: SnippetFormProps) {
     const [prefix, setPrefix] = useState('');
     const [body, setBody] = useState('');
     const [description, setDescription] = useState('');
-    const [errors, setErrors] = useState({ snippetName: '', prefix: '', body: '', description: '' });
+    const [errors, setErrors] = useState<Record<'snippetName' | 'prefix' | 'body' | 'description', string>>({
+        snippetName: '',
+        prefix: '',
+        body: '',
+        description: '',
+    });
 
     const isFormComplete = snippetName && prefix && body && description;
 
     // 验证输入框内容
-    const validateField = (field: string, value: string) => {
+    const validateField = (field: keyof typeof errors, value: string) => {
         let error = '';
         if (!value) {
             switch (field) {
@@ -44,7 +48,7 @@ export default function SnippetForm({ onGenerate }: SnippetFormProps) {
     };
 
     // 处理输入框的失去焦点事件
-    const handleBlur = (field: string, value: string) => {
+    const handleBlur = (field: keyof typeof errors, value: string) => {
         const newErrors = { ...errors };
         newErrors[field] = validateField(field, value);
         setErrors(newErrors);

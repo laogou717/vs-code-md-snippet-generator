@@ -49,11 +49,12 @@ export default function Home() {
   };
 
   // 打字机效果
-  const typewriterEffect = (text: string, setText: (text: string) => void) => {
+  // 打字机效果
+  const typewriterEffect = (text: string, setText: React.Dispatch<React.SetStateAction<string>>) => {
     let index = 0;
     const interval = setInterval(() => {
       if (index < text.length) {
-        setText(prev => prev + text.charAt(index));
+        setText((prev) => prev + text.charAt(index)); // 传递一个函数给 setText
         index++;
       } else {
         clearInterval(interval);
