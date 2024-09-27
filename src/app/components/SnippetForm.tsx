@@ -40,9 +40,9 @@ export default function SnippetForm({ onGenerate }: SnippetFormProps) {
             }
         } else {
             // 额外的正则表达式检查（例如前缀不能包含特殊字符）
-            if (field === 'prefix' && /[^a-zA-Z0-9_-]/.test(value)) {
-                error = '触发前缀只能包含字母、数字、下划线和连字符';
-            }
+            // if (field === 'prefix' && /[^a-zA-Z0-9_-]/.test(value)) {
+            //     error = '触发前缀只能包含字母、数字、下划线和连字符';
+            // }
         }
         return error;
     };
