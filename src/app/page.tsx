@@ -63,7 +63,8 @@ export default function Home() {
           <div className="container mx-auto flex justify-between items-center">
             <h1 className="text-xl font-bold">VsCode-MD-DIY片段生成器</h1>
             <div className="flex space-x-4">
-              <a href="https://www.laogou717.com/2024/09/27/Github/vscode-md-diy/" className="text-gray-500 hover:text-black">博文</a>
+              <a href="https://www.laogou717.com/2024/09/27/Github/vscode-md-diy" className="text-gray-500 hover:text-black">相关博文</a>
+              <a href="https://github.com/laogou717/vs-code-md-snippet-generator" className="text-gray-500 hover:text-black">开源地址</a>
               <a href="https://space.bilibili.com/46377861" className="text-gray-500 hover:text-black">更多</a>
             </div>
           </div>
