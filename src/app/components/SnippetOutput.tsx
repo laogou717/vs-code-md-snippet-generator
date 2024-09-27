@@ -20,7 +20,9 @@ export default function SnippetOutput({ snippetOutput, onCopy }: SnippetOutputPr
     return (
         <div className="mt-4 mb-4">
             <h2 className="text-lg font-medium text-gray-900">生成的代码片段：</h2>
-            <pre className="mt-2 p-4 bg-gray-100 rounded-md">{snippetOutput}</pre>
+            <pre className="mt-2 p-4 bg-gray-100 rounded-md overflow-x-auto break-words whitespace-pre-wrap">
+                {snippetOutput}
+            </pre>
             <div className="flex justify-center">
                 <button
                     onClick={handleCopy}
