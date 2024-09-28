@@ -1,4 +1,3 @@
-// src/app/components/SnippetOutput.tsx
 import { useState } from 'react';
 
 interface SnippetOutputProps {
@@ -20,7 +19,8 @@ export default function SnippetOutput({ snippetOutput, onCopy }: SnippetOutputPr
     return (
         <div className="mt-4 mb-4">
             <h2 className="text-lg font-medium text-gray-900">生成的代码片段：</h2>
-            <pre className="mt-2 p-4 bg-gray-100 rounded-md overflow-x-auto break-words whitespace-pre-wrap">
+            {/* 设置 max-height 和 overflow 来控制 <pre> 的滚动 */}
+            <pre className="mt-2 p-4 bg-gray-100 rounded-md overflow-auto" style={{ maxHeight: '300px' }}>
                 {snippetOutput}
             </pre>
             <div className="flex justify-center">
